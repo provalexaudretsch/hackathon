@@ -98,7 +98,7 @@ namespace Noteworthy.Controllers
             {
                 IsRead = false,
                 Timestamp = DateTime.Now,
-                Title = machineName,
+                Title = topic.Name,
                 TopicId = topic.Id,
                 AudioAsText = content,
                 UserId = DummyUser.Id,

@@ -16,7 +16,7 @@
 
     viewModel.EndRecording = function () {
 
-        var title = $('#recordingInput').val();
+        var title = $("#topicInput").val();
         var content = "foo recording";
         var postData = {
             "content": content,
@@ -25,7 +25,7 @@
         };
         var note = $.post("/Home/RecordNote?title="+title+"&content="+content+"&userId="+viewModel.CurrentUser.Id, postData, function (n) {
 
-            viewModel.Notes.push(n);
+            viewModel.Notes.unshift(n);
         });
     };
     viewModel.Notes = ko.observableArray(viewModel.Notes);
