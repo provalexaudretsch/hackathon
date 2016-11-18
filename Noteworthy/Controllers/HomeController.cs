@@ -89,6 +89,7 @@ namespace Noteworthy.Controllers
             var topic = Context.Topics.FirstOrDefault(t => t.Name.ToLower() == title.ToLower());
             if (topic == null)
             {
+                if (String.IsNullOrWhiteSpace(title)) { title = new Guid().ToString(); }
                 topic = new Topic(title);
                 Context.Topics.Add(topic);
                 Context.SaveChanges();
