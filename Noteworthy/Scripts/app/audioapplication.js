@@ -23,7 +23,7 @@
             "title": title,
             "userId": viewModel.CurrentUser.Id
         };
-        var note = $.post("/Home/RecordNote", postData, function (n) {
+        var note = $.post("/Home/RecordNote?title="+title+"&content="+content+"&userId="+viewModel.CurrentUser.Id, postData, function (n) {
 
             viewModel.Notes.push(n);
         });
