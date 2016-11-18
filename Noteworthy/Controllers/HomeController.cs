@@ -78,30 +78,29 @@ namespace Noteworthy.Controllers
         }
 
         [HttpPost]
-        public JsonResult RecordNote(string topicName, string s3Path)
+        public JsonResult RecordNote(string title, string content, int userId)
         {
             var machineName = Request.UserHostName;
 
-            var topic = Context.Topics.FirstOrDefault(t => t.Name.ToLower() == topicName.ToLower());
+            var topic = Context.Topics.FirstOrDefault(t => t.Name.ToLower() == title.ToLower());
             if (topic == null)
             {
-                topic = new Topic(topicName);
+                topic = new Topic(title);
                 Context.Topics.Add(topic);
                 Context.SaveChanges();
             }
             var note = new Note()
             {
-                AudioS3Path = s3Path,
                 IsRead = false,
                 Timestamp = DateTime.Now,
                 Title = machineName,
                 TopicId = topic.Id,
-                AudioAsText = "This will be the audio transcription",
-                UserId = 1,
+                AudioAsText = content,
+                UserId = userId,
             };
             Context.Notes.Add(note);
             Context.SaveChanges();
-            return Json(new { Note = note });
+            return Json(note);
         }
     }
 }

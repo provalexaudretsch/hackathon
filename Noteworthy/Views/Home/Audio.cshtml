@@ -37,25 +37,29 @@
     viewModel.StartRecording = function(){
        // var postData = {"title": title, 
         //Start recording here.
+        viewModel.EndRecording();
     }
 
     viewModel.EndRecording = function(){
         
         var title = $('recordingInput').val();
-        var content = "foo";
+        var content = "foo recording";
         var postData = {
             "content": content,
             "title": title,
             "userId": viewModel.CurrentUser.Id
         };
-       // var note = $.post("/Home/RecordNote", )
-
+        var note = $.post("/Home/RecordNote", postData, function(n){
+            
+            viewModel.Notes.push(n);
+        });
+        
 
 
     }
     //viewModel["hello"] = "hey there";
 
-    
+    viewModel["Notes"] = ko.observableArray(viewModel["Notes"]);
     ko.applyBindings(viewModel);
 
     
