@@ -13,5 +13,14 @@ namespace Noteworthy.Models.Entities
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
+
+        public Topic()
+        {
+
+        }
+        public Topic(string name)
+        {
+            Name = name;
+        }
     }
 }

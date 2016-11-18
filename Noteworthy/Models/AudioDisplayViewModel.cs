@@ -8,14 +8,17 @@ namespace Noteworthy.Models
 {
     public class AudioDisplayViewModel
     {
-        public IList<Note> Notes { get; set; }
+        public IList<NoteDisplayViewModel> Notes { get; private set; }
 
-        public User CurrentUser { get; set; }
+        public User CurrentUser { get; private set; }
 
-        public AudioDisplayViewModel(IList<Note> notes, User user)
+        public string RecordingTopic { get; set; }
+
+        public AudioDisplayViewModel(IEnumerable<Note> notes, User user)
         {
-            Notes = notes;
+            Notes = notes.Select(n => new NoteDisplayViewModel(n)).ToList();
             CurrentUser = user;
+           
         }
     }
 }

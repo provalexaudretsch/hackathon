@@ -1,61 +1,81 @@
-﻿
-@model IEnumerable<Noteworthy.Models.Entities.Note>
+﻿@model Noteworthy.Models.AudioDisplayViewModel
 
-<h2>Note Records</h2>
+<h2>Your Records</h2>
+<p data-bind="with: CurrentUser"> Welcome, <span data-bind="text: DisplayName"></span> </p>
+<div id="recording-pane">
+    <input id="recordingInput" data-bind="value: RecordingTopic" />
+    <button data-bind="click: StartRecording" id="AudioButton">Audio Button</button>
+</div>
+<script src="~/Scripts/knockout-2.3.0.js"></script>
+<div id="note-pane">
 
-<p>View records!</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Topic.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Content)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AudioS3Path)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AudioAsText)
-        </th>
-        <th></th>
-    </tr>
+    <div data-bind="foreach: Notes">
+        <div class="note-item">
+        <div class="note-heading" data-bind="css:{'note-unread-headline': IsUnread}">
+            @Html.Raw("@") <span class="note-username" data-bind="text: User.DisplayName, css:{'note-unread': IsUnread, 'note-username-isread': IsRead}"></span>
+           <span data-bind="text: Title, css:{'note-unread': IsUnread}" class="note-topic"></span>
+            <span data-bind="text: TimestampString, css:{'note-unread': IsUnread, 'note-unread-timestamp': IsUnread, 'note-timestamp': IsRead}"></span>
+        </div>
+            <div class="note-audio-text">
+                <span data-bind="text: AudioAsText, css:{'note-unread': IsUnread}"></span>
+                      </div>
+            <div class="note-download">
+                <a data-bind="attr:{href: AudioS3Path, title: Title}">Download Audio</a>
+            </div>
+            
+            </div>
+        
+    </div>
+</div>
+<div class="clear"></div>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Topic.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Content)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AudioS3Path)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AudioAsText)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
+<script type="text/javascript">
+    
+
+    var viewModel = @Html.Raw(@Json.Encode(Model));
+
+    viewModel.StartRecording = function(){
+       // var postData = {"title": title, 
+        //Start recording here.
     }
 
-</table>
+    viewModel.EndRecording = function(){
+        
+        var title = $('recordingInput').val();
+        var content = "foo";
+        var postData = {
+            "content": content,
+            "title": title,
+            "userId": viewModel.CurrentUser.Id
+        };
+       // var note = $.post("/Home/RecordNote", )
 
 
+
+    }
+    //viewModel["hello"] = "hey there";
+
+    
+    ko.applyBindings(viewModel);
+
+    
+</script>
+    @*public int Id { get; set; }
+
+    [Required]
+    public int UserId { get; set; }
+
+    public virtual User User { get; set; }
+
+    [Required]
+    public int TopicId { get; set; }
+    public virtual Topic Topic { get; set; }
+
+    [MaxLength(60)]
+    public string Title { get; set; }
+    [Required]
+    public string Content { get; set; }
+
+    public string AudioS3Path { get; set; }
+
+    public string AudioAsText { get; set; }*@

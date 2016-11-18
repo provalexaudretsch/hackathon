@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 
@@ -22,11 +23,18 @@ namespace Noteworthy.Models.Entities
 
         [MaxLength(60)]
         public string Title { get; set; }
+
         [Required]
-        public string Content { get; set; }
+        public DateTime Timestamp { get; set; }
+
+        public string TimestampString { get { return Timestamp.ToString("t",
+                  CultureInfo.CreateSpecificCulture("en-us")); } }
 
         public string AudioS3Path { get; set; }
 
         public string AudioAsText { get; set; }
+
+        public bool IsRead { get; set; }
+        public bool IsUnread { get { return !IsRead; } }
     }
 }

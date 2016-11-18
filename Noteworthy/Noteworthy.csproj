@@ -256,6 +256,18 @@
     <Compile Include="Migrations\201611171944229_Tables.Designer.cs">
       <DependentUpon>201611171944229_Tables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611180034403_timestamp.cs" />
+    <Compile Include="Migrations\201611180034403_timestamp.Designer.cs">
+      <DependentUpon>201611180034403_timestamp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611181731435_no content.cs" />
+    <Compile Include="Migrations\201611181731435_no content.Designer.cs">
+      <DependentUpon>201611181731435_no content.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611181832046_n.cs" />
+    <Compile Include="Migrations\201611181832046_n.Designer.cs">
+      <DependentUpon>201611181832046_n.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -266,6 +278,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MeViewModels.cs" />
+    <Compile Include="Models\NoteDisplayViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -379,6 +392,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611171944229_Tables.resx">
       <DependentUpon>201611171944229_Tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611180034403_timestamp.resx">
+      <DependentUpon>201611180034403_timestamp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611181731435_no content.resx">
+      <DependentUpon>201611181731435_no content.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611181832046_n.resx">
+      <DependentUpon>201611181832046_n.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -8,7 +8,7 @@
     padding-left: 15px;
     padding-right: 15px;
 }
-
+x-ms-webvie
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -16,6 +16,9 @@
     white-space: normal;
 }
 
+.clear{
+     clear:both;
+}
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
@@ -28,6 +31,79 @@ textarea {
     padding-top: 20px;
 }
 
+.note-item{
+    max-width: 680px;
+    border-bottom: 1px solid #cfcfcf;
+    padding-bottom: 4px;
+    padding-left: 6px;
+     font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.36;
+}
+#recording-pane{
+  height: 768px;
+  background-color: #4a90e2;
+  float:left;
+  display: inline-block;
+}
+#note-pane{
+  width: 483px;
+  height: 768px;
+  background-color: #f2f2f2;
+  float:left;
+  display: inline-block;
+}
+.note-username{
+  width: 20%;
+  text-align:left;
+  display:inline-block;
+}
+.note-username-isread{
+    
+  font-weight:500;
+  color:#4a4a4a;
+}
+.note-topic{
+  color: #4a4a4a;
+  display:inline-block;
+  width:50%;
+  text-align:left;
+  
+}
+.note-timestamp{
+    color:#cfcfcf;
+    display:inline-block;
+    text-align:right;
+}
+
+.note-unread{
+    color:#000000;
+}
+.note-unread-headline{
+    font-weight:600;
+}
+.note-unread-timestamp{
+    color:#4a4a4a;
+}
+.note-heading{
+      height: 19px;
+}
+.note-timestamp{
+    color:#cfcfcf;
+}
+.note-download{
+    
+}
+.note-download-link{
+
+}
+.note-audio-text{
+    
+  color: #787878; 
+}
 @media only screen and (max-width: 767px) {
     .nofloat {
         float: none;
