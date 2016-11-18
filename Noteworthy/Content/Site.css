@@ -1,14 +1,13 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+body {
+
 }
 
 /* Set padding to keep content from hitting the edges */
-.body-content {
+/*.body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
-x-ms-webvie
+}*/
+/*x-ms-webvie*/
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -26,87 +25,152 @@ textarea {
     max-width: 280px;
 }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
 /* Set padding to display errors that occur during databinding */
 .padding-error {
     padding-top: 20px;
 }
 
-.note-item{
-    max-width: 680px;
-    border-bottom: 1px solid #cfcfcf;
-    padding-bottom: 4px;
-    padding-left: 6px;
-     font-family: Roboto;
+/* structure full width outs */
+#tiptop {
+  background: none;
+  border: none;
+}
+
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+}
+
+#lebutton {
+  margin-left: 32%;
+  margin-right: 32%;
+  display: block;
+}
+
+#topicInput {
+  width: 201px;
+  height: 38px;
+  border-radius: 3px;
+  border: none;
+  background-color: #005fd5;
+  box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-family: Roboto;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: .3px;
+}
+
+
+#AudioButton {
+  background: none;
+  border: none;
+  margin-top: 300px;
+  margin-left: 50px;
+}
+
+#microphone {
+  z-index: 10;   
+  position: relative;
+  top: -58px;  
+}
+
+
+
+
+.note-item {
+  /*width: 483px;*/
+  border-bottom: 1px solid #cfcfcf;
+  padding-bottom: 4px;
+  padding-top: 32px;
+  font-family: Roboto;
   font-size: 14px;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   line-height: 1.36;
 }
+
 #recording-pane{
   height: 768px;
   background-color: #4a90e2;
   float:left;
   display: inline-block;
 }
+
 #note-pane{
-  width: 483px;
   height: 768px;
   background-color: #f2f2f2;
   float:left;
   display: inline-block;
+  padding-left: 30px;
+  padding-right: 30px;
 }
+
+#noteWrapper {
+  margin-top: 50px;
+}
+
 .note-username{
+  color:#4a4a4a;
+  font-weight:500;
   width: 20%;
   text-align:left;
   display:inline-block;
 }
-.note-username-isread{
-    
-  font-weight:500;
-  color:#4a4a4a;
-}
+
 .note-topic{
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.36;
   color: #4a4a4a;
   display:inline-block;
   width:50%;
-  text-align:left;
-  
+  text-align:left;  
 }
+
 .note-timestamp{
     color:#cfcfcf;
     display:inline-block;
     text-align:right;
 }
-
 .note-unread{
     color:#000000;
-}
-.note-unread-headline{
     font-weight:600;
 }
-.note-unread-timestamp{
-    color:#4a4a4a;
-}
 .note-heading{
-      height: 19px;
+    height: 19px;
 }
 .note-timestamp{
     color:#cfcfcf;
+    float: right;
+    font-size: 10px;
 }
 .note-download{
+  border: none;
+  text-align: right;
     
 }
 .note-download-link{
 
 }
 .note-audio-text{
-    
   color: #787878; 
+  margin-top: 10px;
 }
-@media only screen and (max-width: 767px) {
+/*@media only screen and (max-width: 767px) {
     .nofloat {
         float: none;
         padding: 10px 15px;
     }
-}
+}*/

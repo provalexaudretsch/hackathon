@@ -26,7 +26,7 @@ namespace Noteworthy.Controllers
             {
                 Context.SysUsers.Add(DummyUser);
             }
-            if (Context.Topics.Count() == 0)
+            if (Context.Topics.Count() < 1)
             {
                 Context.Topics.AddRange(new[] { DummyTopic, DummyTopic2 });
             }
@@ -53,7 +53,7 @@ namespace Noteworthy.Controllers
         }
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Audio");
         }
 
         [HttpGet]

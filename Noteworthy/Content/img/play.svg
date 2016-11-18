@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Teleprovider" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Hackaday" transform="translate(-1318.000000, -411.000000)" fill="#9B9B9B">
+            <path d="M1325,416 L1325,424 L1330,420 L1325,416 L1325,416 Z M1334,411 L1320,411 C1318.9,411 1318,411.9 1318,413 L1318,427 C1318,428.1 1318.9,429 1320,429 L1334,429 C1335.1,429 1336,428.1 1336,427 L1336,413 C1336,411.9 1335.1,411 1334,411 L1334,411 Z M1334,427 L1320,427 L1320,413 L1334,413 L1334,427 L1334,427 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

@@ -17,9 +17,13 @@ namespace Noteworthy
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             var context = new ApplicationDbContext();
-            context.SysUsers.RemoveRange(context.SysUsers);
-            context.Notes.RemoveRange(context.Notes);
-            context.Topics.RemoveRange(context.Topics);
+            //context.SysUsers.RemoveRange(context.SysUsers);
+            //context.Notes.RemoveRange(context.Notes);
+            //context.Topics.RemoveRange(context.Topics);
+            foreach(var note in context.Notes)
+            {
+               
+            }
             context.SaveChanges();
         }
     }

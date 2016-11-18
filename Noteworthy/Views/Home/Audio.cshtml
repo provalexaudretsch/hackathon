@@ -1,70 +1,54 @@
 ﻿@model Noteworthy.Models.AudioDisplayViewModel
 
-<h2>Your Records</h2>
-<p data-bind="with: CurrentUser"> Welcome, <span data-bind="text: DisplayName"></span> </p>
-<div id="recording-pane">
-    <input id="recordingInput" data-bind="value: RecordingTopic" />
-    <button data-bind="click: StartRecording" id="AudioButton">Audio Button</button>
-</div>
-<script src="~/Scripts/knockout-2.3.0.js"></script>
-<div id="note-pane">
+<!-- <h2>Your Records</h2> -->
+<!-- <p data-bind="with: CurrentUser"> Hello, <span data-bind="text: DisplayName">Test User</span> </p> -->
 
-    <div data-bind="foreach: Notes">
+@*<p data-bind="with: CurrentUser"> Welcome, <span data-bind="text: DisplayName"></span> </p>*@
+<div id="recording-pane" class="col-md-6">
+    <div id="lebutton">
+        <button data-bind="click: StartRecording" id="AudioButton">
+
+            <img src="~/Content/img/oval.svg" />
+            <div id="microphone">
+                <img src="~/Content/img/microphone.svg" /></div>
+        </button>
+        <input id="topicInput" data-bind="value: RecordingTopic">
+    </div>
+</div>
+
+<script src="~/Scripts/knockout-2.3.0.js"></script>
+
+
+<div id="note-pane" class="col-md-6">
+
+    <div id="noteWrapper" data-bind="foreach: Notes">
         <div class="note-item">
-        <div class="note-heading" data-bind="css:{'note-unread-headline': IsUnread}">
-            @Html.Raw("@") <span class="note-username" data-bind="text: User.DisplayName, css:{'note-unread': IsUnread, 'note-username-isread': IsRead}"></span>
-           <span data-bind="text: Title, css:{'note-unread': IsUnread}" class="note-topic"></span>
-            <span data-bind="text: TimestampString, css:{'note-unread': IsUnread, 'note-unread-timestamp': IsUnread, 'note-timestamp': IsRead}"></span>
-        </div>
+            <div class="note-heading" data-bind="css:{'note-unread-headline': IsUnread}">
+                @Html.Raw("@") <span class="note-username" data-bind="text: User.DisplayName, css:{'note-unread': IsUnread, 'note-username-isread': IsRead}"></span>
+                <span data-bind="text: Title, css:{'note-unread': IsUnread}" class="note-topic"></span>
+                <span data-bind="text: TimestampString, css:{'note-unread': IsUnread, 'note-unread-timestamp': IsUnread, 'note-timestamp': IsRead}"></span>
+            </div>
             <div class="note-audio-text">
                 <span data-bind="text: AudioAsText, css:{'note-unread': IsUnread}"></span>
-                      </div>
+            </div>
             <div class="note-download">
-                <a data-bind="attr:{href: AudioS3Path, title: Title}">Download Audio</a>
+                <a data-bind="attr:{href: AudioS3Path, title: Title}">
+                    <img src="~/Content/img/play.svg" /></a>
             </div>
-            
-            </div>
-        
+
+        </div>
+
     </div>
+
 </div>
 <div class="clear"></div>
 
+<script src="~/Scripts/app/audioapplication.js"></script>
 <script type="text/javascript">
-    
-
     var viewModel = @Html.Raw(@Json.Encode(Model));
-
-    viewModel.StartRecording = function(){
-       // var postData = {"title": title, 
-        //Start recording here.
-        viewModel.EndRecording();
-    }
-
-    viewModel.EndRecording = function(){
-        
-        var title = $('recordingInput').val();
-        var content = "foo recording";
-        var postData = {
-            "content": content,
-            "title": title,
-            "userId": viewModel.CurrentUser.Id
-        };
-        var note = $.post("/Home/RecordNote", postData, function(n){
-            
-            viewModel.Notes.push(n);
-        });
-        
-
-
-    }
-    //viewModel["hello"] = "hey there";
-
-    viewModel["Notes"] = ko.observableArray(viewModel["Notes"]);
-    ko.applyBindings(viewModel);
-
-    
+    AudioInit(viewModel);
 </script>
-    @*public int Id { get; set; }
+@*public int Id { get; set; }
 
     [Required]
     public int UserId { get; set; }
